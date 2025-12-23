@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';  // 👈 Added Axios import
+import axios from 'axios'; 
 
 export default function Home() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -12,14 +12,14 @@ export default function Home() {
     setIsSubmitting(true);
     
     try {
-      // 👈 Replaced fetch with axios
+
       const response = await axios.post('/api/contact', data, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      const result = response.data;  // 👈 Axios uses response.data
+      const result = response.data; 
       
       if (result.status === 'success') {
         toast.success('🎉 Lead submitted successfully!', {
@@ -31,7 +31,7 @@ export default function Home() {
         toast.error('Failed to submit lead');
       }
     } catch (error) {
-      // 👈 Axios error handling
+     
       if (error.response?.status === 400) {
         toast.error('Invalid data. Please check your inputs.');
       } else if (error.response?.status === 500) {
@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <div className="w-full max-w-md">
-        {/* Header */}
+        
         <div className="text-center mb-10">
           <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
             <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,11 +60,10 @@ export default function Home() {
           <p className="text-gray-600">Submit your details to get started</p>
         </div>
 
-        {/* Form Card */}
         <div className="bg-white/80 backdrop-blur-xl shadow-2xl border border-white/50 rounded-3xl p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             
-            {/* Name Field */}
+            
             <div className="form-group">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Full Name
@@ -79,7 +78,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Email Field */}
+         
             <div className="form-group">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Email Address
@@ -101,7 +100,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Phone Field */}
+           
             <div className="form-group">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Phone Number
@@ -116,7 +115,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Property Value */}
+           
             <div className="form-group">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Property Value
@@ -131,7 +130,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Monthly Salary */}
+           
             <div className="form-group">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Monthly Salary
@@ -146,7 +145,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Submit Button */}
+          
             <button
               type="submit"
               disabled={isSubmitting}
@@ -166,16 +165,8 @@ export default function Home() {
             </button>
           </form>
 
-          {/* Stats (Optional) */}
-          <div className="mt-8 pt-8 border-t border-gray-200/50 grid grid-cols-2 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-indigo-600">100+</div>
-              <div className="text-sm text-gray-600">Leads Captured</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-600">24/7</div>
-              <div className="text-sm text-gray-600">Live Support</div>
-            </div>
+      
+          
           </div>
         </div>
       </div>
