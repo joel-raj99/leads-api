@@ -166,7 +166,15 @@ export default function Home() {
           </form>
 
       
-          
+          <div className="mt-8 pt-8 border-t border-gray-200/50 grid grid-cols-2 gap-4 text-center">
+            <div>
+              <div className="text-2xl font-bold text-indigo-600">100+</div>
+              <div className="text-sm text-gray-600">Leads Captured</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-purple-600">24/7</div>
+              <div className="text-sm text-gray-600">Live Support</div>
+            </div>
           </div>
         </div>
       </div>
